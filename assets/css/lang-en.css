@@ -1,0 +1,23 @@
+/* English language specific styles */
+.lang-en {
+    /* English typography adjustments */
+}
+
+.lang-en .wp-block-navigation-item {
+    /* English menu item styles */
+}
+
+.lang-en .site-title {
+    /* English site title styles */
+}
+
+/* English language indicator */
+.lang-en::before {
+    content: "🇬🇧";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    font-size: 12px;
+    opacity: 0.7;
+}

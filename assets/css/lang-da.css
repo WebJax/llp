@@ -1,0 +1,23 @@
+/* Danish language specific styles */
+.lang-da {
+    /* Danish typography adjustments */
+}
+
+.lang-da .wp-block-navigation-item {
+    /* Danish menu item styles */
+}
+
+.lang-da .site-title {
+    /* Danish site title styles */
+}
+
+/* Danish language indicator */
+.lang-da::before {
+    content: "🇩🇰";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    font-size: 12px;
+    opacity: 0.7;
+}
