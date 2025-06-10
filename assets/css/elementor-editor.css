@@ -1,0 +1,23 @@
+/**
+ * Elementor editor specific styles
+ * These styles ensure proper full-width display in Elementor editor mode
+ */
+
+.entry-content.alignfull .elementor-edit-area {
+    margin: 0;
+    max-width: 100vw;
+}
+
+.entry-content.alignfull .e-con-full {
+    padding: 0;
+}
+
+/* Additional Elementor editor fixes */
+.elementor-editor-active .elementor-section-wrap > .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 100% !important;
+}
+
+.elementor-editor-active .entry-content.alignfull {
+    max-width: 100vw;
+    width: 100vw;
+}
