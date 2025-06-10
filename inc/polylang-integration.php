@@ -28,7 +28,7 @@ class LLP_Polylang_Integration {
         }
         
         add_action('init', [__CLASS__, 'setup_language_support'], 15);
-        add_filter('wp_nav_menu_args', [__CLASS__, 'filter_nav_menu_args']);
+        //add_filter('wp_nav_menu_args', [__CLASS__, 'filter_nav_menu_args']);
         add_filter('get_block_template', [__CLASS__, 'get_language_template'], 10, 3);
         add_action('wp_head', [__CLASS__, 'add_language_meta']);
     }
@@ -37,7 +37,7 @@ class LLP_Polylang_Integration {
      * Setup language support
      */
     public static function setup_language_support() {
-        self::register_language_menu_locations();
+        //self::register_language_menu_locations();
         self::create_sample_language_templates();
     }
     
@@ -101,9 +101,19 @@ class LLP_Polylang_Integration {
             $theme = $template_parts[0];
             $slug = $template_parts[1];
             
+            // Check if this is already a language-specific template to prevent infinite loops
+            if (strpos($slug, '-' . $current_lang) !== false) {
+                return $template;
+            }
+            
             // Try to find language-specific template part
             $lang_template_id = "{$theme}//{$slug}-{$current_lang}";
+            
+            // Temporarily remove our filter to prevent infinite recursion
+            remove_filter('get_block_template', [__CLASS__, 'get_language_template'], 10);
             $lang_template = get_block_template($lang_template_id, $template_type);
+            // Re-add the filter
+            add_filter('get_block_template', [__CLASS__, 'get_language_template'], 10, 3);
             
             if ($lang_template) {
                 return $lang_template;
