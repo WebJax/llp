@@ -1,0 +1,23 @@
+/* German language specific styles */
+.lang-ge {
+    /* German typography adjustments */
+}
+
+.lang-ge .wp-block-navigation-item {
+    /* German menu item styles */
+}
+
+.lang-ge .site-title {
+    /* German site title styles */
+}
+
+/* German language indicator */
+.lang-ge::before {
+    content: "🇩🇪";
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    font-size: 12px;
+    opacity: 0.7;
+}
